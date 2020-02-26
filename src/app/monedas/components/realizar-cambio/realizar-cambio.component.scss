@@ -1,0 +1,23 @@
+@import '../../../shared/styles/variables/colors';
+@import '../../../shared/styles/variables/inputs';
+
+.box-realizar-cambio {
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 490px;
+  margin: 0 auto;
+  .column {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  .form-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    position: relative;
+    width: 100%;
+  }
+}

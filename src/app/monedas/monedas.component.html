@@ -1,1 +1,26 @@
-<p>monedas works!</p>
+<div class="tabs">
+  <input type="radio" id="tab1" name="tab-control" checked>
+  <input type="radio" id="tab2" name="tab-control">
+  <div class="tab-header">
+    <ul>
+      <li title="Features">
+        <label for="tab1" role="button">
+          <br><span>REALIZAR CAMBIO</span>
+        </label>
+      </li>
+      <li title="Delivery Contents">
+        <label for="tab2" role="button">
+          <br><span>LISTADO MONEDAS</span>
+        </label>
+      </li>
+    </ul>
+  </div>
+    
+  <div class="slider">
+    <div class="indicator"></div>
+  </div>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

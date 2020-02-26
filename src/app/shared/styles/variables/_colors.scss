@@ -1,0 +1,8 @@
+/* colors */
+$blue: #0d63f9;
+$red: #FF4A53;
+$dark: #333;
+
+$accent: $blue;
+$accent-inactive: desaturate($accent, 85%);
+$secondary: $accent-inactive;
