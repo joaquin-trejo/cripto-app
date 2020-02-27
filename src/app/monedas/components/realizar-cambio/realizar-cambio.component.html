@@ -11,11 +11,43 @@
     <div class="form-section">
       <input type="text" class="text-input-base" placeholder="0,00">
     </div>
+    
     <div class="form-section">
-      <input type="text" class="text-input-base" placeholder="BTC">
+      <div class="select animated zoomIn">
+        <!-- You can toggle select (disabled) -->
+        <input type="radio" name="option">
+        <i class="toggle icon icon-arrow-down"></i>
+        <i class="toggle icon icon-arrow-up"></i>
+        <span class="placeholder">BTC</span>
+        <label class="option">
+            <input type="radio" name="option">
+            <span class="title animated fadeIn"><i class="icon icon-speedometer"></i>Speedometer</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="option">
+            <span class="title animated fadeIn"><i class="icon icon-fire"></i>Fire</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="option" disabled>
+            <span class="title animated fadeIn"><i class="icon icon-handbag"></i>Handbag</span>
+        </label>
+        <label class="option">
+            <input type="radio" name="option">
+            <span class="title animated fadeIn"><i class="icon icon-badge"></i>Badge</span>
+        </label>
+      </div>
     </div>
+
     <div class="form-section">
       <input type="text" class="text-input-base" placeholder="USD">
+      <div id="dd" class="wrapper-dropdown-3" tabindex="1">
+        <span>Transport</span>
+        <ul class="dropdown">
+          <li><a href="#"><i class="icon-envelope icon-large"></i>Classic mail</a></li>
+          <li><a href="#"><i class="icon-truck icon-large"></i>UPS Delivery</a></li>
+          <li><a href="#"><i class="icon-plane icon-large"></i>Private jet</a></li>
+        </ul>
+      </div>
     </div>
     <div class="form-section">
       <input type="text" class="text-input-base" readonly>
