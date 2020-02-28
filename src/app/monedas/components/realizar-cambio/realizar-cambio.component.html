@@ -9,48 +9,43 @@
       </div>
     </div>
     <div class="form-section">
-      <input type="text" class="text-input-base" placeholder="0,00">
+      <input type="text" class="dropdown" placeholder="0,00">
     </div>
-    
+
     <div class="form-section">
-      <div class="select animated zoomIn">
-        <!-- You can toggle select (disabled) -->
-        <input type="radio" name="option">
-        <i class="toggle icon icon-arrow-down"></i>
-        <i class="toggle icon icon-arrow-up"></i>
-        <span class="placeholder">BTC</span>
-        <label class="option">
-            <input type="radio" name="option">
-            <span class="title animated fadeIn"><i class="icon icon-speedometer"></i>Speedometer</span>
-        </label>
-        <label class="option">
-            <input type="radio" name="option">
-            <span class="title animated fadeIn"><i class="icon icon-fire"></i>Fire</span>
-        </label>
-        <label class="option">
-            <input type="radio" name="option" disabled>
-            <span class="title animated fadeIn"><i class="icon icon-handbag"></i>Handbag</span>
-        </label>
-        <label class="option">
-            <input type="radio" name="option">
-            <span class="title animated fadeIn"><i class="icon icon-badge"></i>Badge</span>
-        </label>
+      <div class="dropdown">
+        <div class="dropdown-trigger" tabindex="1">
+          <span class="dropdown-label">{{ fromMonedaSeleccionada ? fromMonedaSeleccionada.name : 'USD' }}</span>
+          <i class="icon-chevron-down icon icon-arrow-down"></i>
+        </div>
+        <div class="selector-drop">
+          <div class="selector-option" *ngFor="let moneda of criptoMonedas;"
+               (mousedown)="selectCriptoMoneda('from', moneda)">
+            <div class="option-name">
+              {{ moneda.name }}</div>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="form-section">
-      <input type="text" class="text-input-base" placeholder="USD">
-      <div id="dd" class="wrapper-dropdown-3" tabindex="1">
-        <span>Transport</span>
-        <ul class="dropdown">
-          <li><a href="#"><i class="icon-envelope icon-large"></i>Classic mail</a></li>
-          <li><a href="#"><i class="icon-truck icon-large"></i>UPS Delivery</a></li>
-          <li><a href="#"><i class="icon-plane icon-large"></i>Private jet</a></li>
-        </ul>
+      <div class="dropdown">
+        <div class="dropdown-trigger" tabindex="2">
+          <span class="dropdown-label">{{ toMonedaSeleccionada ? toMonedaSeleccionada.name : 'USD' }}</span>
+          <i class="icon-chevron-down icon icon-arrow-down"></i>
+        </div>
+        <div class="selector-drop">
+          <div class="selector-option" *ngFor="let moneda of criptoMonedas;"
+               (mousedown)="selectCriptoMoneda('to', moneda)">
+            <div class="option-name">
+              {{ moneda.name }}</div>
+          </div>
+        </div>
       </div>
     </div>
+
     <div class="form-section">
-      <input type="text" class="text-input-base" readonly>
+      <input type="text" class="dropdown" readonly>
     </div>
   </form>
 </section>

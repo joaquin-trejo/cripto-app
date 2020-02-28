@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MonedasService } from './shared/services/monedas.service';
 import { Moneda } from './shared/models/moneda.model';
 
 @Component({
@@ -11,11 +10,9 @@ import { Moneda } from './shared/models/moneda.model';
 export class MonedasComponent implements OnInit {
 
   criptoMonedas: Moneda[];
-  constructor(private router: Router, private monedasService: MonedasService) { }
+  constructor(private router: Router) { }
 
-  ngOnInit(): void {
-    this.criptoMonedas = this.monedasService.obtenerCriptoMonedas();
-  }
+  ngOnInit(): void {}
 
   navigateTo = (url: string): void => {
     this.router.navigateByUrl(url);
