@@ -1,6 +1,6 @@
-export class Moneda {
-  idCurrency: string;
+export interface Moneda {
+  id_currency: string;
   name: string;
   price: string;
-  crypto: number;
+  crypto: string;
 }

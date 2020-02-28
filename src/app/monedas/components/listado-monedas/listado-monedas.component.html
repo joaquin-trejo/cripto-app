@@ -16,70 +16,21 @@
     </div>
   </div>
 
-  <div class="card card__row">
+  <div class="card card__row" *ngFor="let moneda of criptoMonedas; index as i">
     <div class="container">
       <div class="card-col">
-        <p>Nombre</p>
+        <p>{{ moneda.name }}</p>
       </div>
       <div class="card-col">
-        <p>Nombre</p>
+        <p>{{ moneda.price }}</p>
       </div>
       <div class="card-col">
-        <p>Nombre</p>
+        <p>{{ moneda.crypto === '1' ? 'SI' : 'NO' }}</p>
       </div>
       <div class="card-col">
-        <p>Nombre</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card card__row">
-    <div class="container">
-      <div class="card-col">
-        <p>Nombre</p>
-      </div>
-      <div class="card-col">
-        <p>Nombre</p>
-      </div>
-      <div class="card-col">
-        <p>Nombre</p>
-      </div>
-      <div class="card-col">
-        <p>Nombre</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card card__row">
-    <div class="container">
-      <div class="card-col">
-        <p>Nombre</p>
-      </div>
-      <div class="card-col">
-        <p>Nombre</p>
-      </div>
-      <div class="card-col">
-        <p>Nombre</p>
-      </div>
-      <div class="card-col">
-        <p>Nombre</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card card__row">
-    <div class="container">
-      <div class="card-col">
-        <p>Nombre</p>
-      </div>
-      <div class="card-col">
-        <p>Nombre</p>
-      </div>
-      <div class="card-col">
-        <p>Nombre</p>
-      </div>
-      <div class="card-col">
-        <p>Nombre</p>
+        <a href="">
+          <img src="../../../../assets/shuffle.png" alt="Realizar Cambio" width="40" height="40">
+        </a>
       </div>
     </div>
   </div>
