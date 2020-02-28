@@ -5,12 +5,12 @@
     <ul>
       <li title="Features">
         <label for="tab1" role="button" (click)="navigateTo('/monedas/realizarCambio')">
-          <br><span>REALIZAR CAMBIO</span>
+          <br><span [ngClass]="{'selected-tab': selectedTabRealizarCambio}">REALIZAR CAMBIO</span>
         </label>
       </li>
       <li title="Delivery Contents">
         <label for="tab2" role="button" (click)="navigateTo('/monedas/listadoMonedas')">
-          <br><span>LISTADO MONEDAS</span>
+          <br><span [ngClass]="{'selected-tab': !selectedTabRealizarCambio}">LISTADO MONEDAS</span>
         </label>
       </li>
     </ul>

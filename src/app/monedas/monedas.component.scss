@@ -4,7 +4,7 @@
 /* tab setting */
 $tab-count: 2;
 $indicator-width: 50px;
-$indicator-height: 4px;
+$indicator-height: 6px;
 
 /* breakpoints */
 $breakpoints: (
@@ -55,7 +55,10 @@ $content-selector: "~ .content > section";
   .tab-header {
     width: 100%;
     border-bottom: 1px solid #dbdbdb;
-    margin-bottom: -5px;
+    margin-bottom: -7px;
+    .selected-tab {
+      color: $accent
+    }
   }
   input[name="tab-control"] {
     display: none;
@@ -85,7 +88,7 @@ $content-selector: "~ .content > section";
       
       label {
         transition: all 0.3s ease-in-out;
-        color: $secondary;
+        color: $dark;
         padding: 5px auto;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -130,7 +133,7 @@ $content-selector: "~ .content > section";
       margin: 0 auto;
       height: $indicator-height;
       background: $accent;
-      border-radius: 1px;     
+      border-radius: 1px;
     }
 
   }

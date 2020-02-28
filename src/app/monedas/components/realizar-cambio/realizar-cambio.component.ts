@@ -10,6 +10,7 @@ import { MonedasService } from '../../shared/services/monedas.service';
 export class RealizarCambioComponent implements OnInit {
   fromMonedaSeleccionada: any;
   toMonedaSeleccionada: any;
+  valorConversion = 0;
   criptoMonedas: Moneda[];
 
   constructor(private monedasService: MonedasService) { }
