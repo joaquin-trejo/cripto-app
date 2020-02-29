@@ -12,7 +12,7 @@
       <div class="dropdown dropdown">
         <div class="dropdown-trigger" tabindex="2">
           <img src="../../../../assets/dollar.png" alt="USD" width="18px" height="18px">
-          <input type="text" class="dropdown-label" placeholder="0,00">
+          <input type="number" class="dropdown-label" placeholder="0,00" [(ngModel)]="valorToConvertir" (blur)="convertirModena()" name="valor">
         </div>
       </div>
     </div>
@@ -20,21 +20,22 @@
     <div class="form-section">
       <div class="dropdown">
         <div class="dropdown-trigger" tabindex="1">
-          <span class="dropdown-label dropdown-label__cursor" [ngClass]="{ 'placeholder': !fromMonedaSeleccionada }">{{ fromMonedaSeleccionada ? fromMonedaSeleccionada.name : 'USD' }}</span>
+          <span class="dropdown-label dropdown-label__cursor" [ngClass]="{ 'placeholder': !fromMonedaSeleccionada }">
+            {{ fromMonedaSeleccionada ? fromMonedaSeleccionada.id_currency : 'USD' }}
+          </span>
           <i class="icon-chevron-down icon icon-arrow-down"></i>
         </div>
         <div class="selector-drop" #scrollingBlockFrom>
-          <virtual-scroller #scrollFrom [parentScroll]="scrollingBlockFrom" [items]="controlConfigDropdowns.buffer.from" (vsEnd)="fetchMore($event, 'from')">
+          <virtual-scroller #scrollFrom [parentScroll]="scrollingBlockFrom"
+            [items]="controlConfigDropdowns.buffer.from" (vsEnd)="fetchMore($event, 'from')">
+
             <div class="selector-option" *ngFor="let moneda of scrollFrom.viewPortItems"
                (mousedown)="selectCriptoMoneda('from', moneda)">
               <div class="option-name">{{ moneda.name }}</div>
             </div>
             <div *ngIf="loading" class="loader">Loading...</div>
+
           </virtual-scroller>
-          <!-- <div class="selector-option" *ngFor="let moneda of criptoMonedas;"
-               (mousedown)="selectCriptoMoneda('from', moneda)">
-            <div class="option-name">{{ moneda.name }}</div>
-          </div> -->
         </div>
       </div>
     </div>
@@ -42,21 +43,22 @@
     <div class="form-section">
       <div class="dropdown">
         <div class="dropdown-trigger" tabindex="2">
-          <span class="dropdown-label dropdown-label__cursor" [ngClass]="{ 'placeholder': !toMonedaSeleccionada }">{{ toMonedaSeleccionada ? toMonedaSeleccionada.name : 'USD' }}</span>
+          <span class="dropdown-label dropdown-label__cursor" [ngClass]="{ 'placeholder': !toMonedaSeleccionada }">
+            {{ toMonedaSeleccionada ? toMonedaSeleccionada.id_currency : 'USD' }}
+          </span>
           <i class="icon-chevron-down icon icon-arrow-down"></i>
         </div>
         <div class="selector-drop" #scrollingBlockTo>
-          <virtual-scroller #scrollTo [parentScroll]="scrollingBlockTo" [items]="controlConfigDropdowns.buffer.to" (vsEnd)="fetchMore($event, 'to')">
+          <virtual-scroller #scrollTo [parentScroll]="scrollingBlockTo"
+            [items]="controlConfigDropdowns.buffer.to" (vsEnd)="fetchMore($event, 'to')">
+
             <div class="selector-option" *ngFor="let moneda of scrollTo.viewPortItems"
                (mousedown)="selectCriptoMoneda('to', moneda)">
               <div class="option-name">{{ moneda.name }}</div>
             </div>
             <div *ngIf="loading" class="loader">Loading...</div>
+
           </virtual-scroller>
-          <!-- <div class="selector-option" *ngFor="let moneda of criptoMonedas;"
-               (mousedown)="selectCriptoMoneda('to', moneda)">
-            <div class="option-name">{{ moneda.name }}</div>
-          </div> -->
         </div>
       </div>
     </div>
@@ -65,7 +67,7 @@
       <div class="dropdown dropdown__read-only">
         <div class="dropdown-trigger" tabindex="2">
           <img src="../../../../assets/dollar.png" alt="USD" width="18px" height="18px">
-          <span class="dropdown-label placeholder">{{ valorConversion }}</span>
+          <span class="dropdown-label placeholder">{{ resultadoConversion }}</span>
         </div>
       </div>
     </div>
