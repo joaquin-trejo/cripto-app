@@ -10,8 +10,18 @@ import { IPageInfo } from 'ngx-virtual-scroller';
 })
 export class RealizarCambioComponent implements OnInit {
 
-  fromMonedaSeleccionada: any;
-  toMonedaSeleccionada: any;
+  fromMonedaSeleccionada: Moneda = {
+    id_currency: 'EBTC',
+    name: 'eBitcoin',
+    price: '1180417.97748009',
+    crypto: '1'
+  };
+  toMonedaSeleccionada: Moneda = {
+    id_currency: 'USD',
+    name: 'United States Dollar',
+    price: '8603.84063081',
+    crypto: '0'
+  };
   valorToConvertir: number;
   resultadoConversion = 0;
 
