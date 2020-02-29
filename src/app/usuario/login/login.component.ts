@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from '../shared/services/usuario.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  loginForm: any;
+
+  constructor(private usuarioService: UsuarioService, private formBuilder: FormBuilder) {
+    this.loginForm = this.formBuilder.group({
+      usuario: '',
+      clave: ''
+    });
+  }
 
   ngOnInit(): void {
+  }
+
+  public ingresarUsuario = (loginForm: any) => {
+    this.usuarioService.loginUsuario(loginForm).then((success: any) => {
+
+    }, (error: any) => {
+
+    });
   }
 
 }
