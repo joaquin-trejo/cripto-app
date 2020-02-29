@@ -1,6 +1,6 @@
 <div class="tabs">
-  <input type="radio" id="tab1" name="tab-control" checked>
-  <input type="radio" id="tab2" name="tab-control">
+  <input type="radio" id="tab1" name="tab-control" [checked]="selectedTabRealizarCambio">
+  <input type="radio" id="tab2" name="tab-control" [checked]="!selectedTabRealizarCambio">
   <div class="tab-header">
     <ul>
       <li>

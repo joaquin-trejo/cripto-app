@@ -12,6 +12,9 @@ import { RealizarCambioComponent } from './monedas/components/realizar-cambio/re
 import { ListadoMonedasComponent } from './monedas/components/listado-monedas/listado-monedas.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { NvbarComponent } from './shared/components/nvbar/nvbar.component';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { LoginComponent } from './usuario/login/login.component';
+import { RegisterComponent } from './usuario/register/register.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { NvbarComponent } from './shared/components/nvbar/nvbar.component';
     RealizarCambioComponent,
     ListadoMonedasComponent,
     FooterComponent,
-    NvbarComponent
+    NvbarComponent,
+    UsuarioComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

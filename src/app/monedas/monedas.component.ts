@@ -13,7 +13,9 @@ export class MonedasComponent implements OnInit {
   selectedTabRealizarCambio = true;
   constructor(private router: Router) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.selectedTabRealizarCambio = this.router.url.includes('realizarCambio');
+  }
 
   navigateTo = (url: string): void => {
     this.selectedTabRealizarCambio = url.includes('realizarCambio');

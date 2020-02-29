@@ -3,10 +3,22 @@ import { Routes, RouterModule } from '@angular/router';
 import { MonedasComponent } from './monedas/monedas.component';
 import { RealizarCambioComponent } from './monedas/components/realizar-cambio/realizar-cambio.component';
 import { ListadoMonedasComponent } from './monedas/components/listado-monedas/listado-monedas.component';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { LoginComponent } from './usuario/login/login.component';
+import { RegisterComponent } from './usuario/register/register.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'monedas', pathMatch: 'full' },
+  { path: '', redirectTo: 'usuario', pathMatch: 'full' },
+  {
+    path: 'usuario',
+    component: UsuarioComponent,
+    children: [
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent }
+    ]
+  },
   {
     path: 'monedas',
     component: MonedasComponent,
