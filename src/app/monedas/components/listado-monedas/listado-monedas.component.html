@@ -16,22 +16,28 @@
     </div>
   </div>
 
-  <div class="card card__row" *ngFor="let moneda of criptoMonedas; index as i">
-    <div class="container">
-      <div class="card-col">
-        <p>{{ moneda.name }}</p>
+  <div class="container-moneda-list" #scrollingBlock>
+    <virtual-scroller #scroll [parentScroll]="scrollingBlock" [items]="buffer" (vsEnd)="fetchMore($event)">
+      <div class="card card__row" *ngFor="let moneda of scroll.viewPortItems">
+        <div class="container">
+          <div class="card-col">
+            <p>{{ moneda.name }}</p>
+          </div>
+          <div class="card-col">
+            <p>{{ moneda.price }}</p>
+          </div>
+          <div class="card-col">
+            <p>{{ moneda.crypto === '1' ? 'SI' : 'NO' }}</p>
+          </div>
+          <div class="card-col">
+            <a href="">
+              <img src="../../../../assets/shuffle.png" alt="Realizar Cambio" width="40" height="40">
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="card-col">
-        <p>{{ moneda.price }}</p>
-      </div>
-      <div class="card-col">
-        <p>{{ moneda.crypto === '1' ? 'SI' : 'NO' }}</p>
-      </div>
-      <div class="card-col">
-        <a href="">
-          <img src="../../../../assets/shuffle.png" alt="Realizar Cambio" width="40" height="40">
-        </a>
-      </div>
-    </div>
+    </virtual-scroller>
+    <div *ngIf="loading" class="loader">Loading...</div>
   </div>
+
 </section>

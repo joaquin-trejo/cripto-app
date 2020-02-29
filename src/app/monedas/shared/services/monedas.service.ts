@@ -10,10 +10,14 @@ export class MonedasService {
 
   constructor(private http: HttpClient) { }
 
-  public obtenerCriptoMonedas = () => {
-    const  headers = new  HttpHeaders().set('X-CustomHttpHeader', 'CUSTOM_VALUE');
-    const URL = `https://cripto-app.herokuapp.com/v1/api/moneda/lista`;
-    return this.http.get(URL, { headers });
+  public obtenerCriptoMonedas = (from: number, to: number): any => {
+    const URL = `https://cripto-app.herokuapp.com/v1/api/moneda/lista?from=${from}&to=${to}`;
+    return this.http.get(URL);
+  }
+
+  public convertirMoneda = (qty: number, from: string, to: string): any => {
+    const URL = `https://cripto-app.herokuapp.com/v1/api/moneda/conversion?qty=${qty}&from=${from}&to=${to}`;
+    return this.http.get(URL);
   }
 
 }

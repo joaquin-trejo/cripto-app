@@ -20,8 +20,8 @@ export class RealizarCambioComponent implements OnInit, OnDestroy {
   constructor(private monedasService: MonedasService) { }
 
   ngOnInit(): void {
-    this.subscriptions.push(this.monedasService.obtenerCriptoMonedas().subscribe((monedas: any) => {
-      this.criptoMonedas = monedas.prices;
+    this.subscriptions.push(this.monedasService.obtenerCriptoMonedas(0, 100).subscribe((monedas: any) => {
+      this.criptoMonedas = monedas;
     }));
   }
 

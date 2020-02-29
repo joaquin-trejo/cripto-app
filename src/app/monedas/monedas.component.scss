@@ -46,9 +46,9 @@ $content-selector: "~ .content > section";
   position: relative;
   background: white;
   padding-top: 50px;
-  padding-bottom: 200px;
+  padding-bottom: 100px;
   width: 60%;
-  height: auto;
+  height: 100%;
   border-radius: 2px;
   border: 1px solid #dbdbdb;
   min-width: #{$tab-count * 60px};
@@ -140,6 +140,7 @@ $content-selector: "~ .content > section";
   
   .content {
     margin-top: 30px;
+    height: 400px;
   }
   
   input[name="tab-control"] {

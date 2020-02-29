@@ -1,6 +1,7 @@
 section {
   padding-left: 10%;
   padding-right: 10%;
+  height: 100%;
 }
 
 .card {
@@ -35,4 +36,13 @@ section {
       padding-top: 10px;
     }
   }
+}
+
+
+.container-moneda-list {
+  height: 100%;
+}
+
+.loader {
+  padding: 10px;
 }

@@ -1,30 +1,41 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MonedasService } from '../../shared/services/monedas.service';
 import { Moneda } from '../../shared/models/moneda.model';
-import { Subscription } from 'rxjs';
+import { IPageInfo } from 'ngx-virtual-scroller';
 
 @Component({
   selector: 'app-listado-monedas',
   templateUrl: './listado-monedas.component.html',
   styleUrls: ['./listado-monedas.component.scss']
 })
-export class ListadoMonedasComponent implements OnInit, OnDestroy {
 
-  criptoMonedas: Moneda[];
+export class ListadoMonedasComponent implements OnInit {
 
-  subscriptions: Subscription[] = [];
+  buffer: Moneda[] = [];
+  loading: boolean = true;
 
   constructor(private monedasService: MonedasService) { }
 
-  ngOnInit(): void {
-    this.subscriptions.push(this.monedasService.obtenerCriptoMonedas().subscribe((monedas: any) => {
-      this.criptoMonedas = monedas.prices;
-    }));
+  ngOnInit(): void { }
+
+  public fetchMore(event: IPageInfo) {
+    if (event.endIndex !== this.buffer.length - 1) {
+      return;
+    }
+    this.loading = true;
+    // add another 20 items
+    const END_INDEX = this.buffer.length + 20;
+    this.fetchNextChunk(this.buffer.length, END_INDEX).then((chunk: any) => {
+      this.buffer = this.buffer.concat(chunk);
+      this.loading = false;
+    }, () => this.loading = false);
   }
 
-  ngOnDestroy(): void {
-    this.subscriptions.forEach(subscription => {
-      subscription.unsubscribe();
+  private fetchNextChunk = (startIndex: number, endIndex: number): Promise<Moneda[]> => {
+    return new Promise((resolve, reject) => {
+      this.monedasService.obtenerCriptoMonedas(startIndex, endIndex).subscribe((data: any) => {
+        resolve(data);
+      });
     });
   }
 
