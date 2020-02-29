@@ -23,11 +23,18 @@
           <span class="dropdown-label dropdown-label__cursor" [ngClass]="{ 'placeholder': !fromMonedaSeleccionada }">{{ fromMonedaSeleccionada ? fromMonedaSeleccionada.name : 'USD' }}</span>
           <i class="icon-chevron-down icon icon-arrow-down"></i>
         </div>
-        <div class="selector-drop">
-          <div class="selector-option" *ngFor="let moneda of criptoMonedas;"
+        <div class="selector-drop" #scrollingBlockFrom>
+          <virtual-scroller #scrollFrom [parentScroll]="scrollingBlockFrom" [items]="controlConfigDropdowns.buffer.from" (vsEnd)="fetchMore($event, 'from')">
+            <div class="selector-option" *ngFor="let moneda of scrollFrom.viewPortItems"
+               (mousedown)="selectCriptoMoneda('from', moneda)">
+              <div class="option-name">{{ moneda.name }}</div>
+            </div>
+            <div *ngIf="loading" class="loader">Loading...</div>
+          </virtual-scroller>
+          <!-- <div class="selector-option" *ngFor="let moneda of criptoMonedas;"
                (mousedown)="selectCriptoMoneda('from', moneda)">
             <div class="option-name">{{ moneda.name }}</div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -38,11 +45,18 @@
           <span class="dropdown-label dropdown-label__cursor" [ngClass]="{ 'placeholder': !toMonedaSeleccionada }">{{ toMonedaSeleccionada ? toMonedaSeleccionada.name : 'USD' }}</span>
           <i class="icon-chevron-down icon icon-arrow-down"></i>
         </div>
-        <div class="selector-drop">
-          <div class="selector-option" *ngFor="let moneda of criptoMonedas;"
+        <div class="selector-drop" #scrollingBlockTo>
+          <virtual-scroller #scrollTo [parentScroll]="scrollingBlockTo" [items]="controlConfigDropdowns.buffer.to" (vsEnd)="fetchMore($event, 'to')">
+            <div class="selector-option" *ngFor="let moneda of scrollTo.viewPortItems"
+               (mousedown)="selectCriptoMoneda('to', moneda)">
+              <div class="option-name">{{ moneda.name }}</div>
+            </div>
+            <div *ngIf="loading" class="loader">Loading...</div>
+          </virtual-scroller>
+          <!-- <div class="selector-option" *ngFor="let moneda of criptoMonedas;"
                (mousedown)="selectCriptoMoneda('to', moneda)">
             <div class="option-name">{{ moneda.name }}</div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

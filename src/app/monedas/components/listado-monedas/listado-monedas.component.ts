@@ -12,23 +12,38 @@ import { IPageInfo } from 'ngx-virtual-scroller';
 export class ListadoMonedasComponent implements OnInit {
 
   buffer: Moneda[] = [];
-  loading: boolean = true;
+  totalPrices: number;
+  loading: boolean;
+  doNotContinueFetching: boolean;
 
   constructor(private monedasService: MonedasService) { }
 
   ngOnInit(): void { }
 
   public fetchMore(event: IPageInfo) {
-    if (event.endIndex !== this.buffer.length - 1) {
-      return;
+    if (!this.doNotContinueFetching) {
+      if (event.endIndex !== this.buffer.length - 1) {
+        return;
+      }
+      this.loading = true;
+      this.doNotContinueFetching = true;
+      // add another 20 items
+      const END_INDEX = this.buffer.length + 20;
+      if (this.totalPrices !== this.buffer.length) {
+
+        this.fetchNextChunk(this.buffer.length, END_INDEX).then((chunk: any) => {
+
+          this.totalPrices = chunk.totalPrices;
+          this.buffer = this.buffer.concat(chunk.prices);
+          this.loading = false;
+          this.doNotContinueFetching = false;
+
+        }, () => this.loading = false);
+
+      } else {
+        this.loading = false;
+      }
     }
-    this.loading = true;
-    // add another 20 items
-    const END_INDEX = this.buffer.length + 20;
-    this.fetchNextChunk(this.buffer.length, END_INDEX).then((chunk: any) => {
-      this.buffer = this.buffer.concat(chunk);
-      this.loading = false;
-    }, () => this.loading = false);
   }
 
   private fetchNextChunk = (startIndex: number, endIndex: number): Promise<Moneda[]> => {
