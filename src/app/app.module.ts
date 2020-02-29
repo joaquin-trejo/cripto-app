@@ -11,6 +11,7 @@ import { MonedasComponent } from './monedas/monedas.component';
 import { RealizarCambioComponent } from './monedas/components/realizar-cambio/realizar-cambio.component';
 import { ListadoMonedasComponent } from './monedas/components/listado-monedas/listado-monedas.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { NvbarComponent } from './shared/components/nvbar/nvbar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     MonedasComponent,
     RealizarCambioComponent,
     ListadoMonedasComponent,
-    FooterComponent
+    FooterComponent,
+    NvbarComponent
   ],
   imports: [
     BrowserModule,
