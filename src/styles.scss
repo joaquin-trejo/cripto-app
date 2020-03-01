@@ -26,3 +26,6 @@ body {
     font-weight: 300;
   }
 }
+.disabled {
+  pointer-events: none;
+}

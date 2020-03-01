@@ -1,24 +1,28 @@
 <div id="login">   
   <h1>Iniciar Session</h1>
   
-  <form action="/" method="post">
+  <form [formGroup]="loginForm" (ngSubmit)="ingresarUsuario(loginForm.value)">
   
     <div class="field-wrap">
-      <label>
-        Usuario<span class="req">*</span>
-      </label>
-      <input type="text" required autocomplete="off" formControlName="usuario"/>
+      <input type="text" placeholder="Usuario" required autocomplete="off" formControlName="usuario" />
     </div>
   
     <div class="field-wrap">
-      <label>
-        Contraseña<span class="req">*</span>
-      </label>
-      <input type="password" required autocomplete="off" formControlName="clave"/>
+      <input type="password" placeholder="Contraseña" required autocomplete="off" formControlName="clave"/>
+    </div>
+
+    <div class="field-wrap" *ngIf="errorMessages">
+      <div class="alert alert-danger" role="alert">
+        <ul>
+          <li *ngFor="let error of errorMessages">
+            {{ error.msg }}
+          </li>
+        </ul>
+      </div>
     </div>
     
-    <button class="button button-block">Ingresar</button>
-  
+    <button class="button button-block" [ngClass]="{'disabled': loginForm.invalid }">Ingresar</button>
+
   </form>
 
 </div>

@@ -1,5 +1,6 @@
 @import '../shared/styles/colors';
 @import '../shared//styles/inputs';
+@import '../shared/styles/alerts';
 
 $form-bg: #13232f;
 $main-dark: darken($accent,5%);
@@ -65,22 +66,15 @@ label {
   -webkit-backface-visibility: hidden;
   pointer-events: none;
   font-size: 22px;
-  .req {
-  	margin: 2px;
-  	color: $accent;
-  }
 }
 
 label.active {
   transform: translateY(50px);
   left: 2px;
   font-size: 14px;
-  .req {
-    opacity: 0;
-  }
 }
 
-input, textarea {
+input, textarea, .custom-dropdown {
   font-size: 22px;
   display: block;
   width: 100%;
@@ -96,6 +90,17 @@ input, textarea {
   &:focus {
 		outline: 0;
 		border-color: $accent;
+  }
+  .dropdown-trigger {
+    width: 100%;
+    padding: 0;
+  }
+  .dropdown-label {
+    text-align: left;
+  }
+  .placeholder {
+    color: #757575;
+    font-size: 22px;
   }
 }
 
@@ -138,6 +143,7 @@ textarea {
   background: $accent;
   color: $white;
   -webkit-appearance: none;
+  cursor: pointer;
   &:hover, &:focus {
     background: $main-dark;
   }
