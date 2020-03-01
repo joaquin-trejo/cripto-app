@@ -1,0 +1,61 @@
+@import 'bourbon';
+@import '../shared/styles/colors';
+@import '../shared/styles/tabs';
+@import '../shared/styles/alerts';
+
+.tabs {
+  .slider {
+    &_custom {
+      width: 100%;
+    }
+  }
+}
+
+section {
+  padding-left: 10%;
+  padding-right: 10%;
+  height: 100%;
+}
+
+.card {
+  transition: 0.3s;
+  width: 100%;
+
+  &__header {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 5px;
+    height: 70px;
+  }
+
+  &__row {
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.1);
+    margin-top: 20px;
+  }
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  .card-col {
+    width: 25%;
+    padding: 0 20px 0 20px;
+  }
+}
+
+.card {
+  &__header {
+    .card-col {
+      padding-top: 10px;
+    }
+  }
+}
+
+
+.container-moneda-list {
+  height: 100%;
+}
+
+.loader {
+  padding: 10px;
+}

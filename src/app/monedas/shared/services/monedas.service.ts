@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Injectable({
@@ -11,6 +11,7 @@ export class MonedasService {
 
   public obtenerCriptoMonedas = (from: number, to: number): any => {
     const URL = `https://cripto-app.herokuapp.com/v1/api/moneda/lista?from=${from}&to=${to}`;
+
     return this.http.get(URL);
   }
 

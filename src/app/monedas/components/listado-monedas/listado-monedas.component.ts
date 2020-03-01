@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef, OnChanges, SimpleChanges } from '@angular/core';
 import { MonedasService } from '../../shared/services/monedas.service';
 import { Moneda } from '../../shared/models/moneda.model';
 import { IPageInfo } from 'ngx-virtual-scroller';

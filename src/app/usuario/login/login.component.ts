@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../shared/services/usuario.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,9 +13,13 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   errorMessages: any[];
 
-  constructor(private usuarioService: UsuarioService, private formBuilder: FormBuilder) {
+  constructor(
+    private usuarioService: UsuarioService,
+    private formBuilder: FormBuilder,
+    private router: Router,
+  ) {
     this.loginForm = this.formBuilder.group({
-      usuario: ['', Validators.required],
+      username: ['', Validators.required],
       clave: ['', Validators.required]
     });
   }
@@ -22,8 +27,12 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   public ingresarUsuario = (loginForm: any) => {
-    this.usuarioService.loginUsuario(loginForm).subscribe((success: any) => {
-      console.log('success: ', success);
+    this.usuarioService.loginUsuario(loginForm)
+    .subscribe((success: any) => {
+      localStorage.setItem('token', success.token);
+      localStorage.setItem('logueado', 'true');
+
+      this.router.navigate(['/monedas']);
     }, (error: any) => {
       this.errorMessages = error.error.errors;
     });

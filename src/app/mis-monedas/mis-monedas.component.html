@@ -1,0 +1,73 @@
+<div class="tabs">
+  <input type="radio" id="tab1" name="tab-control" checked>
+  <input type="radio" id="tab2" name="tab-control">
+  <div class="tab-header">
+    <ul>
+      <li>
+        <label for="tab1" role="button">
+          <br>
+          <span [ngClass]="{'selected-tab': selectedTablistadoMonedas}" (click)="seleccionarTab('listado')">
+            LISTADO MONEDAS
+          </span>
+        </label>
+      </li>
+      <li>
+        <label for="tab2" role="button">
+          <br>
+          <span [ngClass]="{'selected-tab': !selectedTablistadoMonedas}" (click)="seleccionarTab('top')">
+            TOP 3
+          </span>
+        </label>
+      </li>
+    </ul>
+  </div>
+    
+  <div class="slider">
+    <div class="indicator"></div>
+  </div>
+
+  <div class="content">
+    <section *ngIf="usuarioLogueado else errorMessage">
+      <div class="card card__header">
+        <div class="container">
+          <div class="card-col">
+            <p>Nombre</p>
+          </div>
+          <div class="card-col">
+            <p>Fuente</p>
+          </div>
+          <div class="card-col">
+            <p>Precio</p>
+          </div>
+        </div>
+      </div>
+    
+      <div class="container-moneda-list" #scrollingBlock>
+        <div class="card card__row" *ngFor="let moneda of misMonedas">
+          <div class="container">
+            <div class="card-col">
+              <p>{{ moneda.nombre }}</p>
+            </div>
+            <div class="card-col">
+              <p>{{ moneda.fuente }}</p>
+            </div>
+            <div class="card-col">
+              <p>{{ moneda.precio }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    </section>
+
+    <ng-template #errorMessage>
+      <div class="alert alert-danger" role="alert">
+        <ul>
+          <li>
+            Para esta seccion necesitas hacer login. <a [routerLink]="['/usuario']"> (AQUI) </a>
+          </li>
+        </ul>
+      </div>
+    </ng-template>
+  </div>
+</div>

@@ -15,6 +15,7 @@ import { NvbarComponent } from './shared/components/nvbar/nvbar.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { LoginComponent } from './usuario/login/login.component';
 import { RegisterComponent } from './usuario/register/register.component';
+import { MisMonedasComponent } from './mis-monedas/mis-monedas.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RegisterComponent } from './usuario/register/register.component';
     NvbarComponent,
     UsuarioComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MisMonedasComponent
   ],
   imports: [
     BrowserModule,

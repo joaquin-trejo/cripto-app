@@ -5,12 +5,18 @@
     <ul>
       <li>
         <label for="tab1" role="button" (click)="navigateTo('/monedas/realizarCambio')">
-          <br><span [ngClass]="{'selected-tab': selectedTabRealizarCambio}">REALIZAR CAMBIO</span>
+          <br>
+          <span [ngClass]="{'selected-tab': selectedTabRealizarCambio}">
+            REALIZAR CAMBIO
+          </span>
         </label>
       </li>
       <li>
         <label for="tab2" role="button" (click)="navigateTo('/monedas/listadoMonedas')">
-          <br><span [ngClass]="{'selected-tab': !selectedTabRealizarCambio}">LISTADO MONEDAS</span>
+          <br>
+          <span [ngClass]="{'selected-tab': !selectedTabRealizarCambio}">
+            LISTADO MONEDAS
+          </span>
         </label>
       </li>
     </ul>

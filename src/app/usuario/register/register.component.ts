@@ -19,8 +19,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private usuarioService: UsuarioService,
-    private formBuilder: FormBuilder,
-    private router: Router,
+    private formBuilder: FormBuilder
   ) {
     this.registerForm = this.formBuilder.group({
       nombre: ['', Validators.required],
@@ -57,11 +56,10 @@ export class RegisterComponent implements OnInit {
   }
 
   public registrarUsuario = (registerForm: any) => {
-    this.usuarioService.registrarUsuario(registerForm, this.monedaSeleccionada).subscribe((success: any) => {
-      console.log('success: ', success);
+    this.usuarioService.registrarUsuario(registerForm, this.monedaSeleccionada)
+    .subscribe((): void => {
       this.successMessage = 'Usuario se registró exitosamente';
-      this.router.navigate(['/monedas']);
-    }, (error: any) => {
+    }, (error: any): void => {
       this.errorMessages = error.error.errors;
     });
   }

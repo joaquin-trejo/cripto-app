@@ -6,10 +6,12 @@ import { ListadoMonedasComponent } from './monedas/components/listado-monedas/li
 import { UsuarioComponent } from './usuario/usuario.component';
 import { LoginComponent } from './usuario/login/login.component';
 import { RegisterComponent } from './usuario/register/register.component';
+import { MisMonedasComponent } from './mis-monedas/mis-monedas.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'usuario', pathMatch: 'full' },
+  { path: 'misMonedas', component: MisMonedasComponent },
   {
     path: 'usuario',
     component: UsuarioComponent,
