@@ -27,8 +27,8 @@
   </div>
 
   <div class="content">
-    <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
-      {{ errorMessage }}
+    <div class="alert alert-danger" role="alert" *ngIf="errorMessageToken">
+      {{ errorMessageToken }}
     </div>
     <section *ngIf="usuarioLogueado else errorMessage">
       <div class="card card__header">

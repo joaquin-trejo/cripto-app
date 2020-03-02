@@ -14,7 +14,7 @@ export class MisMonedasComponent implements OnInit {
   usuarioLogueado: boolean;
   subscription: Subscription[] = [];
   misMonedas: any[];
-  errorMessage: string;
+  errorMessageToken: string;
 
   constructor(
     private misMonedasService: MisMonedasService,
@@ -42,7 +42,7 @@ export class MisMonedasComponent implements OnInit {
       .subscribe((response: any) => {
         this.misMonedas = response;
       }, (error: any) => {
-        this.errorMessage = error.error.message;
+        this.errorMessageToken = error.error.message;
         setTimeout((): void => {
           this.redirecTo(error.status);
         }, 2000);
@@ -52,7 +52,7 @@ export class MisMonedasComponent implements OnInit {
       .subscribe((response: any) => {
         this.misMonedas = response;
       }, (error: any) => {
-        this.errorMessage = error.error.message;
+        this.errorMessageToken = error.error.message;
         setTimeout((): void => {
           this.redirecTo(error.status);
         }, 2000);
