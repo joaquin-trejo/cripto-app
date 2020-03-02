@@ -19,7 +19,7 @@ export class NvbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.showCerrarSesion = Boolean(localStorage.getItem('logueado'));
+    this.showCerrarSesion = localStorage.getItem('logueado') === 'true';
 
     this.CERRAR_SESION.subscribe((): void => {
       this.showCerrarSesion = false;

@@ -69,16 +69,20 @@ export class RealizarCambioComponent implements OnInit {
     this.convertirModena();
   }
 
-  private isFromListado = (): boolean => Boolean(localStorage.getItem('fromListado'));
+  public myTrackByFunction(index: number, complexItem: Moneda): string {
+    return complexItem.id_currency;
+  }
+
+  private isFromListado = (): boolean => localStorage.getItem('fromListado') === 'true';
 
   private isValidConvertir = (valorToConvertir: number, fromMonedaSeleccionada: any, toMonedaSeleccionada: any): boolean => {
     return valorToConvertir && fromMonedaSeleccionada && toMonedaSeleccionada;
   }
 
   /**
-   * 
-   * @param event 
-   * @param bufferType 
+   *
+   * @param event
+   * @param bufferType
    */
   public fetchMore(event: IPageInfo, bufferType: string) {
     const BUFFER = this.controlConfigDropdowns.buffer[bufferType];

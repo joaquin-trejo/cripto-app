@@ -22,7 +22,7 @@ export class MisMonedasComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.usuarioLogueado = Boolean(localStorage.getItem('logueado'));
+    this.usuarioLogueado = localStorage.getItem('logueado') === 'true';
     if (this.usuarioLogueado) {
       this.subscription.push(this.misMonedasService.getCriptoMonedasByUser()
       .subscribe((response: any) => {

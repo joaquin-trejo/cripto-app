@@ -28,7 +28,7 @@ export class ListadoMonedasComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.showGuardarMoneda = Boolean(localStorage.getItem('logueado'));
+    this.showGuardarMoneda = localStorage.getItem('logueado') === 'true';
     localStorage.removeItem('moneda');
     localStorage.setItem('fromListado', JSON.stringify(false));
   }

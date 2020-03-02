@@ -8,7 +8,7 @@
           <h3>Seleccione las monedas</h3>
         </div>
       </div>
-  
+
       <div class="form-section">
         <div class="dropdown dropdown">
           <div class="dropdown-trigger" tabindex="2">
@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-  
+
       <div class="form-section before-exchange">
         <div class="dropdown">
           <div class="dropdown-trigger" tabindex="1">
@@ -29,13 +29,13 @@
           <div class="selector-drop" #scrollingBlockFrom>
             <virtual-scroller #scrollFrom [parentScroll]="scrollingBlockFrom"
               [items]="controlConfigDropdowns.buffer.from" (vsEnd)="fetchMore($event, 'from')">
-  
+
               <div class="selector-option" *ngFor="let moneda of scrollFrom.viewPortItems"
                  (mousedown)="selectCriptoMoneda('from', moneda)">
                 <div class="option-name">{{ moneda.name }}</div>
               </div>
               <div *ngIf="loading" class="loader">Loading...</div>
-  
+
             </virtual-scroller>
           </div>
         </div>
@@ -44,7 +44,7 @@
       <div class="content-exchange">
         <img (click)="relizarCambio(fromMonedaSeleccionada, toMonedaSeleccionada)" src="../../../../assets/exchange.png" alt="Cambiar Valores">
       </div>
-  
+
       <div class="form-section">
         <div class="dropdown">
           <div class="dropdown-trigger" tabindex="2">
@@ -56,18 +56,18 @@
           <div class="selector-drop" #scrollingBlockTo>
             <virtual-scroller #scrollTo [parentScroll]="scrollingBlockTo"
               [items]="controlConfigDropdowns.buffer.to" (vsEnd)="fetchMore($event, 'to')">
-  
+
               <div class="selector-option" *ngFor="let moneda of scrollTo.viewPortItems"
                  (mousedown)="selectCriptoMoneda('to', moneda)">
                 <div class="option-name">{{ moneda.name }}</div>
               </div>
               <div *ngIf="loading" class="loader">Loading...</div>
-  
+
             </virtual-scroller>
           </div>
         </div>
       </div>
-  
+
       <div class="form-section">
         <div class="dropdown dropdown__read-only">
           <div class="dropdown-trigger" tabindex="2">
