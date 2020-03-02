@@ -10,33 +10,40 @@ import { IPageInfo } from 'ngx-virtual-scroller';
 })
 export class RealizarCambioComponent implements OnInit {
 
-  fromMonedaSeleccionada: Moneda = {
-    id_currency: 'BTCN',
-    name: 'BitcoiNote',
-    price: '6604907.03829823',
-    crypto: '1'
-  };
-  toMonedaSeleccionada: Moneda = {
-    id_currency: 'USD',
-    name: 'United States Dollar',
-    price: '8603.84063081',
-    crypto: '0'
-  };
+  fromMonedaSeleccionada: Moneda;
+  toMonedaSeleccionada: Moneda;
   valorToConvertir: number;
-  resultadoConversion = 0;
-
+  resultadoConversion: number;
   loading: boolean;
+  controlConfigDropdowns: any;
 
-  controlConfigDropdowns: any = {
-    buffer: {
-      from: [],
-      to: []
+  constructor(private monedasService: MonedasService) {
+    this.fromMonedaSeleccionada = {
+      id_currency: 'BTCN',
+      name: 'BitcoiNote',
+      price: '6604907.03829823',
+      crypto: '1'
+    };
+    this.toMonedaSeleccionada = {
+      id_currency: 'USD',
+      name: 'United States Dollar',
+      price: '8603.84063081',
+      crypto: '0'
+    };
+    this.resultadoConversion = 0;
+    this.controlConfigDropdowns = {
+      buffer: {
+        from: [],
+        to: []
+      }
+    };
+  }
+
+  ngOnInit(): void {
+    if (this.isFromListado()) {
+      this.fromMonedaSeleccionada = JSON.parse(localStorage.getItem('moneda'));
     }
-  };
-
-  constructor(private monedasService: MonedasService) { }
-
-  ngOnInit(): void {}
+  }
 
   public selectCriptoMoneda = (type: string, moneda: Moneda): void => {
     if (type === 'from') {
@@ -61,6 +68,8 @@ export class RealizarCambioComponent implements OnInit {
     this.fromMonedaSeleccionada = toMoneda;
     this.convertirModena();
   }
+
+  private isFromListado = (): boolean => Boolean(localStorage.getItem('fromListado'));
 
   private isValidConvertir = (valorToConvertir: number, fromMonedaSeleccionada: any, toMonedaSeleccionada: any): boolean => {
     return valorToConvertir && fromMonedaSeleccionada && toMonedaSeleccionada;

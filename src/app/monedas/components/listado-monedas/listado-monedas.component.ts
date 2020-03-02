@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, ChangeDetectorRef, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MonedasService } from '../../shared/services/monedas.service';
 import { Moneda } from '../../shared/models/moneda.model';
 import { IPageInfo } from 'ngx-virtual-scroller';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listado-monedas',
@@ -16,9 +17,21 @@ export class ListadoMonedasComponent implements OnInit {
   loading: boolean;
   doNotContinueFetching: boolean;
 
-  constructor(private monedasService: MonedasService) { }
+  constructor(
+    private monedasService: MonedasService,
+    private router: Router
+  ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    localStorage.removeItem('moneda');
+    localStorage.setItem('fromListado', JSON.stringify(false));
+  }
+
+  public convertirMoneda = (moneda: Moneda) => {
+    localStorage.setItem('moneda', JSON.stringify(moneda));
+    localStorage.setItem('fromListado', JSON.stringify(true));
+    this.router.navigate(['/monedas/realizarCambio']);
+  }
 
   public fetchMore(event: IPageInfo) {
     if (!this.doNotContinueFetching) {
