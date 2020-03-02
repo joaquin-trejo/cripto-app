@@ -44,6 +44,9 @@ export class ListadoMonedasComponent implements OnInit {
     this.misMonedasService.saveMonedaByUser(moneda)
     .subscribe((): void => {
       this.successMessage = 'Se guardo la moneda con exito!';
+      setTimeout((): void => {
+        this.successMessage = null;
+      }, 2000);
     }, (error: any): void => {
       this.errorMessage = error.error.message;
     });
