@@ -21,13 +21,24 @@ export class MisMonedasComponent implements OnInit {
     if (this.usuarioLogueado) {
       this.subscription.push(this.misMonedasService.getCriptoMonedasByUser()
       .subscribe((response: any) => {
+        console.log('response', response);
         this.misMonedas = response;
-      }, (error: any) => { }));
+      }, (error: any) => {
+        console.log('error', error);
+      }));
     }
   }
 
-  public seleccionarTab = (tab: string): void => {
+  public seleccionarTab = async (tab: string): Promise<void> => {
     this.selectedTablistadoMonedas = tab === 'listado';
+    this.misMonedas = await this.getMonedas(tab);
+  }
+
+  private getMonedas = async (tab: string): Promise<any> => {
+    if (tab === 'listado') {
+      return await this.misMonedasService.getCriptoMonedasByUser().toPromise();
+    }
+    return await this.misMonedasService.getTop3Monedas().toPromise();
   }
 
 }
