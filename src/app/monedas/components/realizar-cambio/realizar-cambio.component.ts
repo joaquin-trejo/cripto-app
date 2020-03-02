@@ -59,6 +59,7 @@ export class RealizarCambioComponent implements OnInit {
   public relizarCambio = (fromMoneda: Moneda, toMoneda: Moneda) => {
     this.toMonedaSeleccionada = fromMoneda;
     this.fromMonedaSeleccionada = toMoneda;
+    this.convertirModena();
   }
 
   private isValidConvertir = (valorToConvertir: number, fromMonedaSeleccionada: any, toMonedaSeleccionada: any): boolean => {
