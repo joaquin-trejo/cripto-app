@@ -21,10 +21,8 @@ export class MisMonedasComponent implements OnInit {
     if (this.usuarioLogueado) {
       this.subscription.push(this.misMonedasService.getCriptoMonedasByUser()
       .subscribe((response: any) => {
-        console.log('response', response);
         this.misMonedas = response;
       }, (error: any) => {
-        console.log('error', error);
       }));
     }
   }

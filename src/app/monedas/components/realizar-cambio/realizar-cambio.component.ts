@@ -11,9 +11,9 @@ import { IPageInfo } from 'ngx-virtual-scroller';
 export class RealizarCambioComponent implements OnInit {
 
   fromMonedaSeleccionada: Moneda = {
-    id_currency: 'EBTC',
-    name: 'eBitcoin',
-    price: '1180417.97748009',
+    id_currency: 'BTCN',
+    name: 'BitcoiNote',
+    price: '6604907.03829823',
     crypto: '1'
   };
   toMonedaSeleccionada: Moneda = {
@@ -56,10 +56,20 @@ export class RealizarCambioComponent implements OnInit {
     }
   }
 
+  public relizarCambio = (fromMoneda: Moneda, toMoneda: Moneda) => {
+    this.toMonedaSeleccionada = fromMoneda;
+    this.fromMonedaSeleccionada = toMoneda;
+  }
+
   private isValidConvertir = (valorToConvertir: number, fromMonedaSeleccionada: any, toMonedaSeleccionada: any): boolean => {
     return valorToConvertir && fromMonedaSeleccionada && toMonedaSeleccionada;
   }
 
+  /**
+   * 
+   * @param event 
+   * @param bufferType 
+   */
   public fetchMore(event: IPageInfo, bufferType: string) {
     const BUFFER = this.controlConfigDropdowns.buffer[bufferType];
     if (event.endIndex !== BUFFER.length - 1) {

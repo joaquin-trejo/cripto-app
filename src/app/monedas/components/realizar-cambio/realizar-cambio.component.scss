@@ -16,9 +16,12 @@
   .form-section {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     position: relative;
     width: 100%;
+    &.before-exchange {
+      margin: 0;
+    }
     .form-title {
       h1 {
         margin: 5px;
@@ -44,4 +47,13 @@
       }
     }
   } 
+  .content-exchange {
+    width: 350px;
+    img {
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      float: right;
+    }
+  }
 }
