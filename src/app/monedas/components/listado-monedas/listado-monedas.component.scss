@@ -1,3 +1,5 @@
+@import '../../../shared/styles/colors';
+
 section {
   padding-left: 10%;
   padding-right: 10%;
@@ -25,8 +27,41 @@ section {
   width: 100%;
   display: flex;
   .card-col {
+    align-self: center;
+    &__price {
+      color: $accent;
+      font-weight: bold;
+    }
+    &__crypto {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      &.si-cripto {
+        color: $success;
+      }
+      &.no-cripto {
+        color: $error;
+      }
+    }
+    a {
+      align-self: center;
+    }
     width: 25%;
     padding: 0 20px 0 20px;
+  }
+  .circle-indicador {
+    margin-right: 5px;
+    width: 15px;
+    height: 15px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    &.si-cripto {
+      background: $success;
+    }
+    &.no-cripto {
+      background: $error;
+    }
   }
 }
 

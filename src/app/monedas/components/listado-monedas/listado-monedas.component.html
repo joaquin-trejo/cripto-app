@@ -23,15 +23,22 @@
           <div class="card-col">
             <p>{{ moneda.name }}</p>
           </div>
-          <div class="card-col">
-            <p>{{ moneda.price }}</p>
+          <div class="card-col card-col__price">
+            <p>{{ moneda.price | currency }}</p>
           </div>
           <div class="card-col">
-            <p>{{ moneda.crypto === '1' ? 'SI' : 'NO' }}</p>
+            <div class="card-col__crypto" [ngClass]="{
+              'si-cripto': moneda.crypto === '1',
+              'no-cripto': moneda.crypto === '0'
+            }">
+              <div class="circle-indicador si-cripto" *ngIf="moneda.crypto === '1'"></div>
+              <div class="circle-indicador no-cripto" *ngIf="moneda.crypto === '0'"></div>
+              <span>{{ moneda.crypto === '1' ? 'SI' : 'NO' }}</span>
+            </div>
           </div>
           <div class="card-col">
             <a href="">
-              <img src="../../../../assets/shuffle.png" alt="Realizar Cambio" width="40" height="40">
+              <img src="../../../../assets/shuffle.png" alt="Realizar Cambio" width="30" height="30">
             </a>
           </div>
         </div>
