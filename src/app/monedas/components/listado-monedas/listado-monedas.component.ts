@@ -36,6 +36,7 @@ export class ListadoMonedasComponent implements OnInit {
   public convertirMoneda = (moneda: Moneda): void => {
     localStorage.setItem('moneda', JSON.stringify(moneda));
     localStorage.setItem('fromListado', JSON.stringify(true));
+    window.dispatchEvent(new CustomEvent('SELECTED_FIRST_TAB'));
     this.router.navigate(['/monedas/realizarCambio']);
   }
 
