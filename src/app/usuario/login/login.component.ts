@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     .subscribe((success: any) => {
       localStorage.setItem('token', success.token);
       localStorage.setItem('logueado', 'true');
-
+      window.dispatchEvent(new CustomEvent('LOGIN_SESION'));
       this.router.navigate(['/monedas']);
     }, (error: any) => {
       if (error.status === 404) {

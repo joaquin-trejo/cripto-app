@@ -9,7 +9,7 @@
   <a [routerLink]="['/misMonedas']" routerLinkActive="active">
     Mis Monedas
   </a>
-  <a [routerLink]="['/usuario']" class="cerrar-Sesion">
+  <a (click)="cerrarSesion()" class="cerrar-Sesion" *ngIf="showCerrarSesion">
     Cerrar Sesion
   </a>
 </div>
