@@ -3,6 +3,7 @@ import { MonedasService } from '../../shared/services/monedas.service';
 import { Moneda } from '../../shared/models/moneda.model';
 import { IPageInfo } from 'ngx-virtual-scroller';
 import { Router } from '@angular/router';
+import { MisMonedasService } from 'src/app/mis-monedas/shared/services/mis-monedas.service';
 
 @Component({
   selector: 'app-listado-monedas',
@@ -16,24 +17,38 @@ export class ListadoMonedasComponent implements OnInit {
   totalPrices: number;
   loading: boolean;
   doNotContinueFetching: boolean;
+  errorMessage: string;
+  successMessage: string;
+  showGuardarMoneda: boolean;
 
   constructor(
     private monedasService: MonedasService,
+    private misMonedasService: MisMonedasService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.showGuardarMoneda = Boolean(localStorage.getItem('logueado'));
     localStorage.removeItem('moneda');
     localStorage.setItem('fromListado', JSON.stringify(false));
   }
 
-  public convertirMoneda = (moneda: Moneda) => {
+  public convertirMoneda = (moneda: Moneda): void => {
     localStorage.setItem('moneda', JSON.stringify(moneda));
     localStorage.setItem('fromListado', JSON.stringify(true));
     this.router.navigate(['/monedas/realizarCambio']);
   }
 
-  public fetchMore(event: IPageInfo) {
+  public guardarMoneda = (moneda: Moneda): void => {
+    this.misMonedasService.saveMonedaByUser(moneda)
+    .subscribe((): void => {
+      this.successMessage = 'Se guardo la moneda con exito!';
+    }, (error: any): void => {
+      this.errorMessage = error.error.message;
+    });
+  }
+
+  public fetchMore(event: IPageInfo): void {
     if (!this.doNotContinueFetching) {
       if (event.endIndex !== this.buffer.length - 1) {
         return;
@@ -44,14 +59,16 @@ export class ListadoMonedasComponent implements OnInit {
       const END_INDEX = this.buffer.length + 20;
       if (this.totalPrices !== this.buffer.length) {
 
-        this.fetchNextChunk(this.buffer.length, END_INDEX).then((chunk: any) => {
+        this.fetchNextChunk(this.buffer.length, END_INDEX).then((chunk: any): void => {
 
           this.totalPrices = chunk.totalPrices;
           this.buffer = this.buffer.concat(chunk.prices);
           this.loading = false;
           this.doNotContinueFetching = false;
 
-        }, () => this.loading = false);
+        }, (): void => {
+          this.loading = false;
+        });
 
       } else {
         this.loading = false;

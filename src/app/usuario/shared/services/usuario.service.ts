@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Usuario } from '../../models/usuario';
+import { Usuario } from '../../shared/models/usuario';
 import { Moneda } from 'src/app/monedas/shared/models/moneda.model';
 import { Observable } from 'rxjs';
 

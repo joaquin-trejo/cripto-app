@@ -51,11 +51,11 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  public seleccionarMoneda = (criptoMoneda: Moneda) => {
+  public seleccionarMoneda = (criptoMoneda: Moneda): void => {
     this.monedaSeleccionada = criptoMoneda;
   }
 
-  public registrarUsuario = (registerForm: any) => {
+  public registrarUsuario = (registerForm: any): void => {
     this.usuarioService.registrarUsuario(registerForm, this.monedaSeleccionada)
     .subscribe((): void => {
       this.successMessage = 'Usuario se registró exitosamente';

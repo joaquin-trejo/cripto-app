@@ -1,4 +1,13 @@
 <section>
+  
+  <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+    {{ errorMessage }} <a [routerLink]="['/usuario']"> (LOGIN AQUI) </a>
+  </div>
+
+  <div class="alert alert-success" role="alert" *ngIf="successMessage">
+    {{ successMessage }}
+  </div>
+  
   <div class="card card__header">
     <div class="container">
       <div class="card-col">
@@ -39,6 +48,9 @@
           <div class="card-col">
             <a (click)="convertirMoneda(moneda)">
               <img src="../../../../assets/shuffle.png" alt="Realizar Cambio" width="30" height="30">
+            </a>
+            <a (click)="guardarMoneda(moneda)" *ngIf="showGuardarMoneda">
+              <img src="../../../../assets/guardar.png" alt="Realizar Cambio" width="30" height="30">
             </a>
           </div>
         </div>
