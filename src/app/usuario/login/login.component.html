@@ -20,6 +20,10 @@
         </ul>
       </div>
     </div>
+
+    <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
     
     <button class="button button-block" [ngClass]="{'disabled': loginForm.invalid }">Ingresar</button>
 

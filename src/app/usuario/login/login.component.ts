@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   errorMessages: any[];
+  errorMessage: string;
 
   constructor(
     private usuarioService: UsuarioService,
@@ -34,7 +35,11 @@ export class LoginComponent implements OnInit {
 
       this.router.navigate(['/monedas']);
     }, (error: any) => {
-      this.errorMessages = error.error.errors;
+      if (error.status === 404) {
+        this.errorMessage = error.error.message;
+      } else {
+        this.errorMessages = error.error.errors;
+      }
     });
   }
 
