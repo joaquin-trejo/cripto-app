@@ -42,7 +42,7 @@ export class MisMonedasComponent implements OnInit {
   private getMonedas = async (tab: string): Promise<any> => {
     if (tab === 'listado') {
       this.subscription.push(this.misMonedasService.getCriptoMonedasByUser()
-      .subscribe((response: any) => {
+      .subscribe((response: any[]) => {
         this.misMonedas = response;
       }, (error: any) => {
         this.errorMessageToken = error.error.message;

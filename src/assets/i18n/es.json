@@ -23,5 +23,7 @@
   "Contraseña": "Contraseña",
   "Apellido": "Apellido",
   "successMessage": "Usuario se registró exitosamente",
-  "Cargando": "Cargando..."
+  "Cargando": "Cargando...",
+  "notFoundMonedas": "No se encontraron monedas.",
+  "Fuente": "Fuente"
 }

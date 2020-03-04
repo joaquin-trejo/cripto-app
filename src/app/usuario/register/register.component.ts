@@ -62,6 +62,8 @@ export class RegisterComponent implements OnInit {
       .subscribe((data:any): void => {
       console.log("data: ", JSON.stringify(data,null,4))
       this.successMessage = 'Usuario se registró exitosamente';
+      this.registerForm.reset();
+      this.monedaSeleccionada = null;
       }, (error: any): void => {
           console.log("error: ", error.error)
           this.errorBack = error.error.message;

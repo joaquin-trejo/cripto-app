@@ -22,6 +22,8 @@
   "Contraseña": "Password",
   "Apellido": "Last name",
   "successMessage": "User successfully registered",
-  "Cargando": "Loading..."
+  "Cargando": "Loading...",
+  "notFoundMonedas": "No Currencies found.",
+  "Fuente": "Source"
 
 }
