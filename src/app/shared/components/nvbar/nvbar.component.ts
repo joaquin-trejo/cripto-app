@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, fromEvent } from 'rxjs';
-import { TranslateService } from '@ngx-translate/core';
-
 
 @Component({
   selector: 'app-nvbar',
@@ -17,11 +15,7 @@ export class NvbarComponent implements OnInit {
   showMisMonedas = false;
 
 
-  constructor(private router: Router, public translate: TranslateService) {
-
-    translate.addLangs(['es', 'en']);
-    translate.setDefaultLang('es');
-
+  constructor(private router: Router) {
     this.CERRAR_SESION = fromEvent(window, 'CERRAR_SESION');
     this.LOGIN_SESION = fromEvent(window, 'LOGIN_SESION');
   }
@@ -38,10 +32,6 @@ export class NvbarComponent implements OnInit {
       this.showCerrarSesion = true;
       this.showMisMonedas = true;
     });
-  }
-
-  switchLang(lang: string) {
-    this.translate.use(lang);
   }
 
   public cerrarSesion = (): void => {

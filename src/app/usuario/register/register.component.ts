@@ -16,7 +16,6 @@ export class RegisterComponent implements OnInit {
   monedaSeleccionada: Moneda;
   errorMessages: any[];
   successMessage: string;
-  errorBack: any;
 
   constructor(
     private usuarioService: UsuarioService,
@@ -57,16 +56,10 @@ export class RegisterComponent implements OnInit {
   }
 
   public registrarUsuario = (registerForm: any): void => {
-    this.errorBack = '';
     this.usuarioService.registrarUsuario(registerForm, this.monedaSeleccionada)
-      .subscribe((data:any): void => {
-      console.log("data: ", JSON.stringify(data,null,4))
+    .subscribe((): void => {
       this.successMessage = 'Usuario se registró exitosamente';
-      this.registerForm.reset();
-      this.monedaSeleccionada = null;
-      }, (error: any): void => {
-          console.log("error: ", error.error)
-          this.errorBack = error.error.message;
+    }, (error: any): void => {
       this.errorMessages = error.error.errors;
     });
   }

@@ -11,16 +11,16 @@
   <div class="card card__header">
     <div class="container">
       <div class="card-col">
-        <p>{{'Nombre' | translate}}</p>
+        <p>Nombre</p>
       </div>
       <div class="card-col">
-        <p>{{'Precio' | translate}}</p>
+        <p>Precio</p>
       </div>
       <div class="card-col">
-        <p>{{'Criptomoneda' | translate}}</p>
+        <p>Criptomoneda</p>
       </div>
       <div class="card-col">
-        <p>{{'Convertir' | translate}}</p>
+        <p>Convertir</p>
       </div>
     </div>
   </div>
@@ -47,15 +47,15 @@
           </div>
           <div class="card-col">
             <a (click)="convertirMoneda(moneda)">
-              <img src="../../../../assets/shuffle.png" alt="Realizar Cambio" width="30" height="30" title="{{'Convertir moneda' | translate}}">
+              <img src="../../../../assets/shuffle.png" alt="Realizar Cambio" width="30" height="30" title="Convertir moneda">
             </a>
             <a (click)="guardarMoneda(moneda)" *ngIf="showGuardarMoneda">
-              <img src="../../../../assets/guardar.png" alt="Realizar Cambio" width="30" height="30" title="{{'Agregar moneda' | translate}}">
+              <img src="../../../../assets/guardar.png" alt="Realizar Cambio" width="30" height="30" title="Agregar moneda">
             </a>
           </div>
         </div>
       </div>
-      <div *ngIf="loading" class="loader">{{'Cargando' | translate}}</div>
+      <div *ngIf="loading" class="loader">Loading...</div>
     </virtual-scroller>
   </div>
 

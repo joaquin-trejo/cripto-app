@@ -7,7 +7,7 @@
         <label for="tab1" role="button">
           <br>
           <span [ngClass]="{'selected-tab': selectedTablistadoMonedas}" (click)="seleccionarTab('listado')">
-            {{ 'LISTADO MONEDAS' | translate }}
+            LISTADO MONEDAS
           </span>
         </label>
       </li>
@@ -36,23 +36,18 @@
       <div class="card card__header">
         <div class="container">
           <div class="card-col">
-            <p>{{ 'Nombre' | translate }}</p>
+            <p>Nombre</p>
           </div>
           <div class="card-col">
-            <p>{{ 'Fuente' | translate }}</p>
+            <p>Fuente</p>
           </div>
           <div class="card-col">
-            <p>{{ 'Precio' | translate }}</p>
+            <p>Precio</p>
           </div>
         </div>
       </div>
 
       <div class="container-moneda-list" #scrollingBlock>
-        <p></p>
-        <div class="alert alert-info" role="alert" *ngIf="misMonedas && misMonedas.length === 0">
-          {{ 'notFoundMonedas' | translate }}
-        </div>
-
         <div class="card card__row" *ngFor="let moneda of misMonedas">
           <div class="container">
             <div class="card-col">
@@ -67,7 +62,6 @@
           </div>
         </div>
       </div>
-
 
     </section>
 

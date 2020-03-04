@@ -1,12 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClient,HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { VirtualScrollerModule } from 'ngx-virtual-scroller';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 import { MonedasComponent } from './monedas/monedas.component';
@@ -18,10 +16,6 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { LoginComponent } from './usuario/login/login.component';
 import { RegisterComponent } from './usuario/register/register.component';
 import { MisMonedasComponent } from './mis-monedas/mis-monedas.component';
-
-export function httpTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
 
 @NgModule({
   declarations: [
@@ -42,14 +36,7 @@ export function httpTranslateLoader(http: HttpClient) {
     HttpClientModule,
     VirtualScrollerModule,
     FormsModule,
-    ReactiveFormsModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: httpTranslateLoader,
-        deps: [HttpClient]
-      }
-    })
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

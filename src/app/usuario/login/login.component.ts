@@ -28,8 +28,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   public ingresarUsuario = (loginForm: any) => {
-    this.errorMessage = '';
-    this.errorMessages = [];
     this.usuarioService.loginUsuario(loginForm)
     .subscribe((success: any) => {
       localStorage.setItem('token', success.token);
