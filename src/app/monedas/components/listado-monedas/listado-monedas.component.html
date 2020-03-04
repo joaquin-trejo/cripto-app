@@ -1,7 +1,7 @@
 <section>
 
   <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
-    {{ errorMessage }} <a [routerLink]="['/usuario']"> (LOGIN AQUI) </a>
+    {{ errorMessage }}
   </div>
 
   <div class="alert alert-success" role="alert" *ngIf="successMessage">
@@ -11,16 +11,16 @@
   <div class="card card__header">
     <div class="container">
       <div class="card-col">
-        <p>Nombre</p>
+        <p>{{'Nombre' | translate}}</p>
       </div>
       <div class="card-col">
-        <p>Precio</p>
+        <p>{{'Precio' | translate}}</p>
       </div>
       <div class="card-col">
-        <p>Criptomoneda</p>
+        <p>{{'Criptomoneda' | translate}}</p>
       </div>
       <div class="card-col">
-        <p>Convertir</p>
+        <p>{{'Convertir' | translate}}</p>
       </div>
     </div>
   </div>
@@ -47,15 +47,15 @@
           </div>
           <div class="card-col">
             <a (click)="convertirMoneda(moneda)">
-              <img src="../../../../assets/shuffle.png" alt="Realizar Cambio" width="30" height="30" title="Convertir moneda">
+              <img src="../../../../assets/shuffle.png" alt="Realizar Cambio" width="30" height="30" title="{{'Convertir moneda' | translate}}">
             </a>
             <a (click)="guardarMoneda(moneda)" *ngIf="showGuardarMoneda">
-              <img src="../../../../assets/guardar.png" alt="Realizar Cambio" width="30" height="30" title="Agregar moneda">
+              <img src="../../../../assets/guardar.png" alt="Realizar Cambio" width="30" height="30" title="{{'Agregar moneda' | translate}}">
             </a>
           </div>
         </div>
       </div>
-      <div *ngIf="loading" class="loader">Loading...</div>
+      <div *ngIf="loading" class="loader">{{'Cargando' | translate}}</div>
     </virtual-scroller>
   </div>
 

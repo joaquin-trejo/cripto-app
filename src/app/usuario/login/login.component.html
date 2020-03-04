@@ -1,18 +1,18 @@
 <div id="login">
-  <h1>Iniciar Sesión</h1>
+  <h1>{{'Iniciar Sesión' | translate}}</h1>
 
   <form [formGroup]="loginForm" (ngSubmit)="ingresarUsuario(loginForm.value)">
 
     <div class="field-wrap">
-      <input type="text" placeholder="Usuario" required autocomplete="off" formControlName="username" />
+      <input type="text" placeholder="{{'Usuario' | translate}}" required autocomplete="off" formControlName="username" />
     </div>
 
     <div class="field-wrap">
-      <input type="password" placeholder="Contraseña" required autocomplete="off" formControlName="clave"/>
+      <input type="password" placeholder="{{'Contraseña' | translate}}" required autocomplete="off" formControlName="clave"/>
     </div>
 
     <div class="field-wrap" *ngIf="errorMessages">
-      <div class="alert alert-danger" role="alert">
+      <div *ngIf="errorMessages.length > 0" class="alert alert-danger" role="alert">
         <ul>
           <li *ngFor="let error of errorMessages">
             {{ error.msg }}
@@ -25,7 +25,7 @@
       {{ errorMessage }}
     </div>
 
-    <button class="button button-block" [ngClass]="{'disabled': loginForm.invalid }">Ingresar</button>
+    <button class="button button-block" [ngClass]="{'disabled': loginForm.invalid }">{{'Ingresar' | translate}}</button>
 
   </form>
 

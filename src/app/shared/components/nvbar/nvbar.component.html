@@ -1,15 +1,23 @@
 <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
 <div class="topnav" id="myTopnav">
   <a *ngIf="!showMisMonedas" [routerLink]="['/usuario']" routerLinkActive="active">
-    Ingresar
+    {{'Ingresar' | translate}}
   </a>
   <a [routerLink]="['/monedas']" routerLinkActive="active">
-    Monedas
+    {{'Monedas' | translate}}
   </a>
   <a *ngIf="showMisMonedas" [routerLink]="['/misMonedas']" routerLinkActive="active">
-    Mis Monedas
+    {{'Mis Monedas' | translate}}
   </a>
+  <span>
+    <select #selectedLang (change)="switchLang(selectedLang.value)">
+      <option *ngFor="let language of translate.getLangs()" [value]="language"
+        [selected]="language === translate.currentLang">
+        {{ language }}
+      </option>
+    </select>
+  </span>
   <a (click)="cerrarSesion()" class="cerrar-Sesion" *ngIf="showCerrarSesion">
-    Cerrar Sesion
+    {{'Cerrar Sesión' | translate}}
   </a>
 </div>
