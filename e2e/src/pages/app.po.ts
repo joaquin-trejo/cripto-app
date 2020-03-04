@@ -9,7 +9,24 @@ export class AppPage {
     return element(by.css('.spec-resultado-de-la-conversion')).getText();
   }
 
-  getTitleText() {
+  getClickMonedaOrigen() {
+    return element(by.css('.spec-click-open-dropdown-origen')).click();
+  }
+
+  setMonedaOrigen(value: string) {
+
+    return element(by.css('.spec-click-open-dropdown-origen')).sendKeys(value);
+  }
+
+  getClickMonedaDestino() {
+    return element(by.css('.spec-click-open-dropdown-destino')).click();
+  }
+  setMonedaDestino(value: string) {
+
+    return element(by.css('.spec-click-open-dropdown-destino')).sendKeys(value);
+  }
+
+  setTitleText() {
     return element(by.css('.spec-title-realizar-cambio')).getText();
   }
 

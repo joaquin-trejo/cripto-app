@@ -19,7 +19,7 @@
       </div>
 
       <div class="form-section before-exchange">
-        <div class="dropdown">
+        <div class="dropdown spec-click-open-dropdown-origen">
           <div class="dropdown-trigger" tabindex="1">
             <span class="dropdown-label dropdown-label__cursor" [ngClass]="{ 'placeholder': !fromMonedaSeleccionada }">
               {{ fromMonedaSeleccionada ? fromMonedaSeleccionada.id_currency : 'USD' }}
@@ -46,7 +46,7 @@
       </div>
 
       <div class="form-section">
-        <div class="dropdown">
+        <div class="dropdown spec-click-open-dropdown-destino">
           <div class="dropdown-trigger" tabindex="2">
             <span class="dropdown-label dropdown-label__cursor" [ngClass]="{ 'placeholder': !toMonedaSeleccionada }">
               {{ toMonedaSeleccionada ? toMonedaSeleccionada.id_currency : 'USD' }}
