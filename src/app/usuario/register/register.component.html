@@ -1,29 +1,29 @@
-<div id="signup">   
-  <h1>Registro</h1>
-  
+<div id="signup">
+  <h1>{{'Registro' | translate}}</h1>
+
   <form [formGroup]="registerForm" (ngSubmit)="registrarUsuario(registerForm.value)">
 
     <div class="field-wrap">
-      <input type="text" required placeholder="Nombre" autocomplete="off" formControlName="nombre"/>
-    </div>
-    
-    <div class="field-wrap">
-      <input type="text" required placeholder="Apellido" autocomplete="off" formControlName="apellido"/>
+      <input type="text" required placeholder="{{'Nombre' | translate}}" autocomplete="off" formControlName="nombre"/>
     </div>
 
     <div class="field-wrap">
-      <input type="text" required placeholder="Username" autocomplete="off" formControlName="username"/>
+      <input type="text" required placeholder="{{'Apellido' | translate}}" autocomplete="off" formControlName="apellido"/>
     </div>
 
     <div class="field-wrap">
-      <input type="password"required placeholder="Contraseña" autocomplete="off" formControlName="clave"/>
+      <input type="text" required placeholder="{{'Usuario' | translate}}" autocomplete="off" formControlName="username"/>
+    </div>
+
+    <div class="field-wrap">
+      <input type="password"required placeholder="{{'Contraseña' | translate}}" autocomplete="off" formControlName="clave"/>
     </div>
 
     <div class="field-wrap">
       <div class="dropdown custom-dropdown">
         <div class="dropdown-trigger" tabindex="1">
           <span class="dropdown-label dropdown-label__cursor" [ngClass]="{ 'placeholder': !monedaSeleccionada }">
-            {{ monedaSeleccionada ? monedaSeleccionada.id_currency : 'Moneda' }}
+            {{ monedaSeleccionada ? monedaSeleccionada.id_currency : 'Moneda' | translate }}
           </span>
           <i class="icon-chevron-down icon icon-arrow-down"></i>
         </div>
@@ -37,6 +37,7 @@
     </div>
 
     <div class="field-wrap" *ngIf="errorMessages">
+      <!--Listado de errores de validación de campos-->
       <div class="alert alert-danger" role="alert">
         <ul>
           <li *ngFor="let error of errorMessages">
@@ -46,14 +47,25 @@
       </div>
     </div>
 
-    <div class="field-wrap" *ngIf="successMessage">
-      <div class="alert alert-success" role="alert">
-        {{ successMessage }}
+    <!--Errores de lógica de negocio-->
+    <div class="field-wrap" *ngIf="errorBack">
+    <div class="alert alert-danger" role="alert">
+        <ul>
+          <li>
+            {{ errorBack }}
+          </li>
+        </ul>
       </div>
     </div>
-    
-    <button type="submit" class="button button-block" [ngClass]="{'disabled': registerForm.invalid || !monedaSeleccionada }">Registrar</button>
-  
+
+    <div class="field-wrap" *ngIf="successMessage">
+      <div class="alert alert-success" role="alert">
+        {{ 'successMessage' | translate}}
+      </div>
+    </div>
+
+    <button type="submit" class="button button-block" [ngClass]="{'disabled': registerForm.invalid || !monedaSeleccionada }">{{'Registrar' | translate}}</button>
+
   </form>
 
 </div>

@@ -1,0 +1,27 @@
+{
+  "Ingresar": "login",
+  "Monedas": "Currency",
+  "Moneda": "Currency",
+  "Cerrar Sesión": "Close Session",
+  "Registrar": "Register",
+  "Iniciar Sesión": "Login",
+  "Registro": "Registration",
+  "Mis Monedas": "My Currencies",
+  "REALIZAR CAMBIO": "MAKE CHANGE",
+  "Realizar Cambio": "Make Change",
+  "Seleccione las monedas": "Select the currencies",
+  "LISTADO MONEDAS": "LIST OF COINS",
+  "Nombre": "Name",
+  "Precio": "Price",
+  "Criptomoneda": "Cryptocurrency",
+  "Convertir": "Convert",
+  "Convertir moneda": "Convert currency",
+  "Agregar moneda": "Add currency",
+  "Se guardo la moneda con exito!": "The coin was saved successfully!",
+  "Usuario": "Username",
+  "Contraseña": "Password",
+  "Apellido": "Last name",
+  "successMessage": "User successfully registered",
+  "Cargando": "Loading..."
+
+}

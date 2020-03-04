@@ -21,16 +21,18 @@
       </li>
     </ul>
   </div>
-    
+
   <div class="slider">
     <div class="indicator"></div>
   </div>
 
   <div class="content">
+
     <div class="alert alert-danger" role="alert" *ngIf="errorMessageToken">
       {{ errorMessageToken }}
     </div>
     <section *ngIf="usuarioLogueado else errorMessage">
+        <span>Usuario: {{username}}</span>
       <div class="card card__header">
         <div class="container">
           <div class="card-col">
@@ -44,7 +46,7 @@
           </div>
         </div>
       </div>
-    
+
       <div class="container-moneda-list" #scrollingBlock>
         <div class="card card__row" *ngFor="let moneda of misMonedas">
           <div class="container">
@@ -60,7 +62,11 @@
           </div>
         </div>
       </div>
-    
+
+      <div class="alert alert-info" role="alert" *ngIf="misMonedas">
+        {{ notFoundMonedas }}
+      </div>
+
     </section>
 
     <ng-template #errorMessage>

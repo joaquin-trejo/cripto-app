@@ -7,7 +7,7 @@
         <label for="tab1" role="button" (click)="navigateTo('/monedas/realizarCambio')">
           <br>
           <span [ngClass]="{'selected-tab': selectedTabRealizarCambio}">
-            REALIZAR CAMBIO
+            {{'REALIZAR CAMBIO' | translate}}
           </span>
         </label>
       </li>
@@ -15,13 +15,13 @@
         <label for="tab2" role="button" (click)="navigateTo('/monedas/listadoMonedas')">
           <br>
           <span [ngClass]="{'selected-tab': !selectedTabRealizarCambio}">
-            LISTADO MONEDAS
+             {{'LISTADO MONEDAS' | translate}}
           </span>
         </label>
       </li>
     </ul>
   </div>
-    
+
   <div class="slider">
     <div class="indicator"></div>
   </div>
