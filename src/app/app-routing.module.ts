@@ -10,7 +10,7 @@ import { MisMonedasComponent } from './mis-monedas/mis-monedas.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'usuario', pathMatch: 'full' },
+  { path: '', redirectTo: 'monedas', pathMatch: 'full' },
   { path: 'misMonedas', component: MisMonedasComponent },
   {
     path: 'usuario',

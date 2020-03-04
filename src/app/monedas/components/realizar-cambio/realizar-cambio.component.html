@@ -2,7 +2,7 @@
     <form class="column">
       <div class="form-section">
         <div class="form-title">
-          <h1>{{'Realizar Cambio' | translate}}</h1>
+          <h1 class="spec-title-realizar-cambio">{{'Realizar Cambio' | translate}}</h1>
         </div>
         <div class="form-subtitle">
           <h3>{{'Seleccione las monedas' | translate}}</h3>
@@ -13,7 +13,7 @@
         <div class="dropdown dropdown">
           <div class="dropdown-trigger" tabindex="2">
             <img src="../../../../assets/dollar.png" alt="USD" width="18px" height="18px">
-            <input type="number" class="dropdown-label" placeholder="0,00" [(ngModel)]="valorToConvertir" (blur)="convertirModena()" name="valor">
+            <input type="number" class="dropdown-label spec-valor-a-convertir" placeholder="0,00" [(ngModel)]="valorToConvertir" (blur)="convertirModena()" name="valor">
           </div>
         </div>
       </div>
@@ -68,7 +68,7 @@
         </div>
       </div>
 
-      <div class="form-section">
+      <div class="form-section spec-resultado-de-la-conversion">
         <div class="dropdown dropdown__read-only">
           <div class="dropdown-trigger" tabindex="2">
             <img src="../../../../assets/dollar.png" alt="USD" width="18px" height="18px">
