@@ -4,13 +4,11 @@ Feature: Ir a la pagina realizar cambio
   Scenario: Pagina Realizar Cambio
     Given estoy en la pagina realizar cambio
     When escribo el valor a convertir que es 1000000
-    Then debo tener el resultado 1327.96
+    Then debo tener el resultado 1367.24
 
   Scenario: Pagina Realizar Cambio seleccionando monedas
-    Given estoy en la pagina realizar cambio
-    When escribo el valor a convertir que es 1000000
-    And doy click al dropdown de la moneda de origen
-    And escojo la moneda EUR
-    And doy click dropdown de la moneda de destino
-    And escojo la moneda COP
-    Then debo tener el resultado 3860012236.38
+    Given estoy en la pagina realizar cambio para seleccionar monedas
+    When escribo el valor del importe que es 1000000
+    And selecciono la moneda de origen
+    And selecciono la moneda de destino
+    Then debo tener el resultado 3094376190.48

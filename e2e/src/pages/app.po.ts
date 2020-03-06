@@ -10,21 +10,15 @@ export class AppPage {
   }
 
   getClickMonedaOrigen() {
-    return element(by.css('.spec-click-open-dropdown-origen')).click();
-  }
-
-  setMonedaOrigen(value: string) {
-
-    return element(by.css('.spec-click-open-dropdown-origen')).sendKeys(value);
+    element(by.css('.spec-click-open-dropdown-origen')).click();
+    return element(by.css('.spec-selection-moneda-origen0')).click();
   }
 
   getClickMonedaDestino() {
-    return element(by.css('.spec-click-open-dropdown-destino')).click();
+    element(by.css('.spec-click-open-dropdown-destino')).click();
+    return element(by.css('.spec-selection-moneda-destino1')).click();
   }
-  setMonedaDestino(value: string) {
 
-    return element(by.css('.spec-click-open-dropdown-destino')).sendKeys(value);
-  }
 
   setTitleText() {
     return element(by.css('.spec-title-realizar-cambio')).getText();

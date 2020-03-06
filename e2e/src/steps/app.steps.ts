@@ -17,23 +17,16 @@ When(/^escribo el valor a convertir que es 1000000$/, async () => {
   await page.setValueToConvert(1000000);
 });
 
-When(/^doy click al dropdown de la moneda de origen$/, async () => {
-  await page.getClickMonedaOrigen();
-});
-
-When(/^escojo la moneda EUR$/, async () => {
-  await page.setMonedaOrigen("EUR");
-});
+// When(/^doy click al dropdown de la moneda de origen$/, async () => {
+//   await page.getClickMonedaOrigen();
+// });
 
 
-When(/^doy click dropdown de la moneda de destino$/, async () => {
-  await page.getClickMonedaDestino();
-});
+// When(/^doy click dropdown de la moneda de destino$/, async () => {
+//   await page.getClickMonedaDestino();
+// });
 
-When(/^escojo la moneda COP$/, async () => {
-  await page.setMonedaOrigen("COP");
-});
 
-Then(/^debo tener el resultado 1327.96$/, async () => {
-  expect(await page.getConvertedResult()).to.equal(1327.96);
+Then(/^debo tener el resultado 1367.24$/, async () => {
+  expect(await page.getConvertedResult()).to.equal('1367.24');
 });

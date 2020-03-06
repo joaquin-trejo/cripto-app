@@ -30,8 +30,8 @@
             <virtual-scroller #scrollFrom [parentScroll]="scrollingBlockFrom"
               [items]="controlConfigDropdowns.buffer.from" (vsEnd)="fetchMore($event, 'from')">
 
-              <div class="selector-option" *ngFor="let moneda of scrollFrom.viewPortItems"
-                 (mousedown)="selectCriptoMoneda('from', moneda)">
+              <div class="selector-option spec-selection-moneda-origen{{i}}" *ngFor="let moneda of scrollFrom.viewPortItems; index as i"
+                 (click)="selectCriptoMoneda('from', moneda)">
                 <div class="option-name">{{ moneda.name }}</div>
               </div>
               <div *ngIf="loading" class="loader">Loading...</div>
@@ -57,8 +57,8 @@
             <virtual-scroller #scrollTo [parentScroll]="scrollingBlockTo"
               [items]="controlConfigDropdowns.buffer.to" (vsEnd)="fetchMore($event, 'to')">
 
-              <div class="selector-option" *ngFor="let moneda of scrollTo.viewPortItems"
-                 (mousedown)="selectCriptoMoneda('to', moneda)">
+              <div class="selector-option spec-selection-moneda-destino{{i}}" *ngFor="let moneda of scrollTo.viewPortItems; index as i"
+                 (click)="selectCriptoMoneda('to', moneda)">
                 <div class="option-name">{{ moneda.name }}</div>
               </div>
               <div *ngIf="loading" class="loader">Loading...</div>
