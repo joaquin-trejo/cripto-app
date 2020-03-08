@@ -19,6 +19,9 @@ export class AppPage {
     return element(by.css('.spec-selection-moneda-destino1')).click();
   }
 
+  invertirMonedas() {
+    return element(by.css('.spec-click-invertir-monedas')).click();
+  }
 
   setTitleText() {
     return element(by.css('.spec-title-realizar-cambio')).getText();

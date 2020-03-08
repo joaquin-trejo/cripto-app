@@ -46,6 +46,7 @@ export class RealizarCambioComponent implements OnInit {
   }
 
   public selectCriptoMoneda = (type: string, moneda: Moneda): void => {
+    console.log("moneda seleccionada: ", JSON.stringify(moneda,null,4))
     if (type === 'from') {
       this.fromMonedaSeleccionada = moneda;
     } else {

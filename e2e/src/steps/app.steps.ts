@@ -27,6 +27,6 @@ When(/^escribo el valor a convertir que es 1000000$/, async () => {
 // });
 
 
-Then(/^debo tener el resultado 1367.24$/, async () => {
-  expect(await page.getConvertedResult()).to.equal('1367.24');
+Then(/^debo tener el resultado 1402.79$/, async () => {
+  expect(await page.getConvertedResult()).to.equal('1402.79');
 });

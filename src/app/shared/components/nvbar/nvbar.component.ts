@@ -15,6 +15,7 @@ export class NvbarComponent implements OnInit {
   CERRAR_SESION: Observable<any>;
   LOGIN_SESION: Observable<any>;
   showMisMonedas = false;
+  username: string;
 
 
   constructor(private router: Router, public translate: TranslateService) {
@@ -37,6 +38,7 @@ export class NvbarComponent implements OnInit {
     this.LOGIN_SESION.subscribe((): void => {
       this.showCerrarSesion = true;
       this.showMisMonedas = true;
+      this.username = localStorage.getItem('username');
     });
   }
 

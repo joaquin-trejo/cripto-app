@@ -31,7 +31,7 @@
               [items]="controlConfigDropdowns.buffer.from" (vsEnd)="fetchMore($event, 'from')">
 
               <div class="selector-option spec-selection-moneda-origen{{i}}" *ngFor="let moneda of scrollFrom.viewPortItems; index as i"
-                 (click)="selectCriptoMoneda('from', moneda)">
+                 (mousedown)="selectCriptoMoneda('from', moneda)">
                 <div class="option-name">{{ moneda.name }}</div>
               </div>
               <div *ngIf="loading" class="loader">Loading...</div>
@@ -42,7 +42,7 @@
       </div>
 
       <div class="content-exchange">
-        <img (click)="relizarCambio(fromMonedaSeleccionada, toMonedaSeleccionada)" src="../../../../assets/exchange.png" alt="Cambiar Valores">
+        <img class="spec-click-invertir-monedas" (click)="relizarCambio(fromMonedaSeleccionada, toMonedaSeleccionada)" src="../../../../assets/exchange.png" alt="Cambiar Valores">
       </div>
 
       <div class="form-section">
@@ -58,7 +58,7 @@
               [items]="controlConfigDropdowns.buffer.to" (vsEnd)="fetchMore($event, 'to')">
 
               <div class="selector-option spec-selection-moneda-destino{{i}}" *ngFor="let moneda of scrollTo.viewPortItems; index as i"
-                 (click)="selectCriptoMoneda('to', moneda)">
+                 (mousedown)="selectCriptoMoneda('to', moneda)">
                 <div class="option-name">{{ moneda.name }}</div>
               </div>
               <div *ngIf="loading" class="loader">Loading...</div>
