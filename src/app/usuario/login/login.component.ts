@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       window.dispatchEvent(new CustomEvent('LOGIN_SESION'));
       this.router.navigate(['/monedas']);
     }, (error: any) => {
-      if (error.status === 404) {
+      if (error.status === 404 || error.status === 400) {
         this.errorMessage = error.error.message;
       } else {
         this.errorMessages = error.error.errors;

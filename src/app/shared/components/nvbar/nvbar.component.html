@@ -10,14 +10,14 @@
     {{'Mis Monedas' | translate}}
   </a>
   <span>
-    <select #selectedLang (change)="switchLang(selectedLang.value)">
+    <select class="lenguajes" #selectedLang (change)="switchLang(selectedLang.value)">
       <option *ngFor="let language of translate.getLangs()" [value]="language"
         [selected]="language === translate.currentLang">
         {{ language }}
       </option>
     </select>
   </span>
-  <a>{{username}}</a>
+  <a *ngIf="showCerrarSesion" class="cerrar-Sesion"><span class="username">{{username}}</span></a>
   <a (click)="cerrarSesion()" class="cerrar-Sesion" *ngIf="showCerrarSesion">
     {{'Cerrar Sesión' | translate}}
   </a>

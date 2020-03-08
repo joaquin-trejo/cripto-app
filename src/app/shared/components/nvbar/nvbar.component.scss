@@ -21,6 +21,12 @@
   }
 }
 
+.username{
+  color: $accent;
+  cursor: none;
+  font-weight: bold;
+}
+
 /* Change the color of links on hover */
 .topnav a:hover {
   color: $accent;
@@ -35,6 +41,11 @@
 /* Hide the link that should open and close the topnav on small screens */
 .topnav .icon {
   display: none;
+}
+
+.lenguajes{
+  margin-top: 12px;
+  margin-left: 20px;
 }
 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
